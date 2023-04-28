@@ -9,27 +9,27 @@ use shopack\base\common\base\BaseEnum;
 
 abstract class enuMemberStatus extends BaseEnum
 {
-  const ACTIVE            = 'A';
-  const INACTIVE          = 'D';
-  const WAIT_FOR_APPROVE  = 'W';
-  const REMOVED           = 'R';
+  const Active            	= 'A';
+  const Inactive          	= 'D';
+  const WaitingForApproval	= 'W';
+  const Removed           	= 'R';
 
 	public static $messageCategory = 'mha';
 
 	public static $list = [
 		// [
-			self::ACTIVE            => 'Active',
-			self::INACTIVE          => 'Inactive',
-			self::WAIT_FOR_APPROVE  => 'Wait For Approval',
-			self::REMOVED           => 'Removed',
+			self::Active            	=> 'Active',
+			self::Inactive          	=> 'Inactive',
+			self::WaitingForApproval	=> 'Waiting For Approval',
+			self::Removed           	=> 'Removed',
 		// ],
 		// 'create-form' => [
-		// 	self::ACTIVE,
-		// 	self::INACTIVE,
+		// 	self::Active,
+		// 	self::Inactive,
 		// ],
 		// 'update-form' => [
-		// 	self::ACTIVE,
-		// 	self::INACTIVE,
+		// 	self::Active,
+		// 	self::Inactive,
 		// ],
 	];
 

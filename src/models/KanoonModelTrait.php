@@ -111,7 +111,7 @@ trait KanoonModelTrait
 			'knnStatus' => [
 				enuColumnInfo::type       => ['string', 'max' => 1],
 				enuColumnInfo::validator  => null,
-				enuColumnInfo::default    => enuKanoonStatus::ACTIVE,
+				enuColumnInfo::default    => enuKanoonStatus::Active,
 				enuColumnInfo::required   => true,
 				enuColumnInfo::selectable => true,
         enuColumnInfo::search     => true,

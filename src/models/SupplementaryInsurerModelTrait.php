@@ -48,7 +48,7 @@ trait SupplementaryInsurerModelTrait
 			'sinsStatus' => [
 				enuColumnInfo::type       => ['string', 'max' => 1],
 				enuColumnInfo::validator  => null,
-				enuColumnInfo::default    => enuInsurerStatus::ACTIVE,
+				enuColumnInfo::default    => enuInsurerStatus::Active,
 				enuColumnInfo::required   => true,
 				enuColumnInfo::selectable => true,
         enuColumnInfo::search     => true,

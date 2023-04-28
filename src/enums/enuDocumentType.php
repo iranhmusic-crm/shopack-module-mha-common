@@ -9,20 +9,16 @@ use shopack\base\common\base\BaseEnum;
 
 abstract class enuDocumentType extends BaseEnum
 {
-  const IDCARD   = 'I'; //کارت ملی / رو
-  // const IDCARD_BACK    = 'N'; //کارت ملی / پشت
-  const BIRTHCERT   = 'B'; //شناسنامه / ص اول
-  // const BIRTHCERT_P2   = 'B'; //شناسنامه / ص دوم
-  const MUSIC_LICENSE  = 'X'; //مدرک موسیقی
+  const IDCard				= 'I'; //کارت ملی
+  const BirthCert			= 'B'; //شناسنامه
+  const MusicLicense	= 'X'; //مدرک موسیقی
 
 	public static $messageCategory = 'mha';
 
 	public static $list = [
-		self::IDCARD   => 'کارت ملی',
-		// self::IDCARD_BACK    => 'کارت ملی / پشت',
-		self::BIRTHCERT   => 'شناسنامه',
-		// self::BIRTHCERT_P2   => 'شناسنامه / ص دوم',
-		self::MUSIC_LICENSE  => 'مدرک موسیقی',
+		self::IDCard				=> 'کارت ملی',
+		self::BirthCert			=> 'شناسنامه',
+		self::MusicLicense	=> 'مدرک موسیقی',
 	];
 
 };

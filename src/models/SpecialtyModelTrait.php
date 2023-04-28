@@ -97,7 +97,7 @@ trait SpecialtyModelTrait
 			'spcStatus' => [
 				enuColumnInfo::type       => ['string', 'max' => 1],
 				enuColumnInfo::validator  => null,
-				enuColumnInfo::default    => enuSpecialtyStatus::ACTIVE,
+				enuColumnInfo::default    => enuSpecialtyStatus::Active,
 				enuColumnInfo::required   => true,
 				enuColumnInfo::selectable => true,
         enuColumnInfo::search     => true,

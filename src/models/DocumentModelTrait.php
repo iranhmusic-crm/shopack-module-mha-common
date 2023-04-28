@@ -56,7 +56,7 @@ trait DocumentModelTrait
 			'docStatus' => [
 				enuColumnInfo::type       => ['string', 'max' => 1],
 				enuColumnInfo::validator  => null,
-				enuColumnInfo::default    => enuDocumentStatus::ACTIVE,
+				enuColumnInfo::default    => enuDocumentStatus::Active,
 				enuColumnInfo::required   => true,
 				enuColumnInfo::selectable => true,
         enuColumnInfo::search     => true,

@@ -9,25 +9,25 @@ use shopack\base\common\base\BaseEnum;
 
 abstract class enuSpecialtyStatus extends BaseEnum
 {
-  const ACTIVE            = 'A';
-  const INACTIVE          = 'D';
-  const REMOVED           = 'R';
+  const Active            = 'A';
+  const Inactive          = 'D';
+  const Removed           = 'R';
 
 	public static $messageCategory = 'mha';
 
 	public static $list = [
 		// [
-			self::ACTIVE            => 'Active',
-			self::INACTIVE          => 'Inactive',
-			self::REMOVED           => 'Removed',
+			self::Active            => 'Active',
+			self::Inactive          => 'Inactive',
+			self::Removed           => 'Removed',
 		// ],
 		// 'create-form' => [
-		// 	self::ACTIVE,
-		// 	self::INACTIVE,
+		// 	self::Active,
+		// 	self::Inactive,
 		// ],
 		// 'update-form' => [
-		// 	self::ACTIVE,
-		// 	self::INACTIVE,
+		// 	self::Active,
+		// 	self::Inactive,
 		// ],
 	];
 
