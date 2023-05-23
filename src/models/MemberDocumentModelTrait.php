@@ -61,6 +61,7 @@ trait MemberDocumentModelTrait
         enuColumnInfo::search     => false, //true
 			],
 			'mbrdocStatus' => [
+				enuColumnInfo::isStatus   => true,
 				enuColumnInfo::type       => ['string', 'max' => 1],
 				enuColumnInfo::validator  => null,
 				enuColumnInfo::default    => enuMemberDocumentStatus::WaitForApprove,

@@ -91,6 +91,7 @@ trait MemberModelTrait
         // enuColumnInfo::search     => null,
 			],
 			'mbrStatus' => [
+				enuColumnInfo::isStatus   => true,
 				enuColumnInfo::type       => ['string', 'max' => 1],
 				enuColumnInfo::validator  => null,
 				enuColumnInfo::default    => enuMemberStatus::WaitingForApproval,

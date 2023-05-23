@@ -69,6 +69,7 @@ trait MemberSupplementaryInsDocModelTrait
 				enuColumnInfo::selectable => true,
 			],
 			'mbrsinsdocStatus' => [
+				enuColumnInfo::isStatus   => true,
 				enuColumnInfo::type       => ['string', 'max' => 1],
 				enuColumnInfo::validator  => null,
 				enuColumnInfo::default    => enuInsurerDocStatus::WaitForSurvey,

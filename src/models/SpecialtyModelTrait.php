@@ -19,6 +19,9 @@ use iranhmusic\shopack\mha\common\enums\enuSpecialtyStatus;
 'spcName' VARCHAR(60) NOT NULL COLLATE 'utf8mb4_unicode_ci',
 'spcDesc' MEDIUMTEXT NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
 
+'spcDescFieldType',
+'spcDescFieldLabel',
+
 'spcStatus',
 'spcCreatedAt',
 'spcCreatedBy',
@@ -93,8 +96,24 @@ trait SpecialtyModelTrait
 				enuColumnInfo::selectable => true,
         enuColumnInfo::search     => true,
 			],
-
+			'spcDescFieldType' => [
+				enuColumnInfo::type       => ['string', 'max' => 64],
+				enuColumnInfo::validator  => null,
+				enuColumnInfo::default    => null,
+				enuColumnInfo::required   => false,
+				enuColumnInfo::selectable => true,
+				enuColumnInfo::search     => true,
+			],
+			'spcDescFieldLabel' => [
+				enuColumnInfo::type       => ['string', 'max' => 64],
+				enuColumnInfo::validator  => null,
+				enuColumnInfo::default    => null,
+				enuColumnInfo::required   => false,
+				enuColumnInfo::selectable => true,
+				enuColumnInfo::search     => true,
+			],
 			'spcStatus' => [
+				enuColumnInfo::isStatus   => true,
 				enuColumnInfo::type       => ['string', 'max' => 1],
 				enuColumnInfo::validator  => null,
 				enuColumnInfo::default    => enuSpecialtyStatus::Active,

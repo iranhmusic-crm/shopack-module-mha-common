@@ -9,6 +9,7 @@ use shopack\base\common\rest\enuColumnInfo;
 use shopack\base\common\validators\JsonValidator;
 
 /*
+'mbrspcID',
 'mbrspcMemberID',
 'mbrspcSpecialtyID',
 'mbrspcDesc',
@@ -18,12 +19,20 @@ use shopack\base\common\validators\JsonValidator;
 trait MemberSpecialtyModelTrait
 {
 	public function primaryKeyValue() {
-		return [$this->mbrspcMemberID, $this->mbrspcSpecialtyID];
+		return $this->mbrspcID;
 	}
 
 	public static function columnsInfo()
 	{
 		return [
+			'mbrspcID' => [
+				enuColumnInfo::type       => 'integer',
+				enuColumnInfo::validator  => null,
+				enuColumnInfo::default    => null,
+				enuColumnInfo::required   => false,
+				enuColumnInfo::selectable => true,
+        enuColumnInfo::search     => true,
+			],
 			'mbrspcMemberID' => [
 				enuColumnInfo::type       => 'integer',
 				enuColumnInfo::validator  => null,
@@ -41,10 +50,10 @@ trait MemberSpecialtyModelTrait
         enuColumnInfo::search     => true,
 			],
 			'mbrspcDesc' => [
-				enuColumnInfo::type       => ['string', 'max' => 128], //JsonValidator::class,
+				enuColumnInfo::type       => JsonValidator::class,
 				enuColumnInfo::validator  => null,
 				enuColumnInfo::default    => null,
-				enuColumnInfo::required   => null,
+				enuColumnInfo::required   => false,
 				enuColumnInfo::selectable => true,
         // enuColumnInfo::search     => null,
 			],
@@ -75,6 +84,39 @@ trait MemberSpecialtyModelTrait
 			$className = '\shopack\aaa\frontend\common\models\UserModel';
 
 		return $this->hasOne($className, ['usrID' => 'mbrspcCreatedBy']);
+	}
+
+	public function getUpdatedByUser() {
+		$className = get_called_class();
+
+		if (str_contains($className, '\\backend\\'))
+			$className = '\shopack\aaa\backend\models\UserModel';
+		else
+			$className = '\shopack\aaa\frontend\common\models\UserModel';
+
+		return $this->hasOne($className, ['usrID' => 'mbrspcUpdatedBy']);
+	}
+
+	public function getMember() {
+		$className = get_called_class();
+
+		if (str_contains($className, '\\backend\\'))
+			$className = '\iranhmusic\shopack\mha\backend\models\MemberModel';
+		else
+			$className = '\iranhmusic\shopack\mha\frontend\common\models\MemberModel';
+
+		return $this->hasOne($className, ['mbrUserID' => 'mbrspcMemberID']);
+	}
+
+	public function getSpecialty() {
+		$className = get_called_class();
+
+		if (str_contains($className, '\\backend\\'))
+			$className = '\iranhmusic\shopack\mha\backend\models\SpecialtyModel';
+		else
+			$className = '\iranhmusic\shopack\mha\frontend\common\models\SpecialtyModel';
+
+		return $this->hasOne($className, ['spcID' => 'mbrspcSpecialtyID']);
 	}
 
 }

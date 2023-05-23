@@ -14,6 +14,7 @@ use iranhmusic\shopack\mha\common\enums\enuMemberKanoonStatus;
 'mbrknnID',
 'mbrknnMemberID',
 'mbrknnKanoonID',
+'mbrknnDesc',
 'mbrknnMembershipDegree',
 'mbrknnStatus',
 'mbrknnCreatedAt',
@@ -54,6 +55,14 @@ trait MemberKanoonModelTrait
 				enuColumnInfo::selectable => true,
         enuColumnInfo::search     => true,
 			],
+			'mbrknnDesc' => [
+				enuColumnInfo::type       => JsonValidator::class,
+				enuColumnInfo::validator  => null,
+				enuColumnInfo::default    => null,
+				enuColumnInfo::required   => false,
+				enuColumnInfo::selectable => true,
+        // enuColumnInfo::search     => null,
+			],
 			'mbrknnMembershipDegree' => [
 				enuColumnInfo::type       => ['string', 'max' => 1],
 				enuColumnInfo::validator  => null,
@@ -63,6 +72,7 @@ trait MemberKanoonModelTrait
         enuColumnInfo::search     => true,
 			],
 			'mbrknnStatus' => [
+				enuColumnInfo::isStatus   => true,
 				enuColumnInfo::type       => ['string', 'max' => 1],
 				enuColumnInfo::validator  => null,
 				enuColumnInfo::default    => enuMemberKanoonStatus::WaitForSend,

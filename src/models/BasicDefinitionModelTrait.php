@@ -6,30 +6,31 @@
 namespace iranhmusic\shopack\mha\common\models;
 
 use shopack\base\common\rest\enuColumnInfo;
-// use shopack\base\common\validators\JsonValidator;
-use iranhmusic\shopack\mha\common\enums\enuInsurerStatus;
+use iranhmusic\shopack\mha\common\enums\enuBasicDefinitionType;
+use iranhmusic\shopack\mha\common\enums\enuBasicDefinitionStatus;
 
 /*
-'sinsID',
-'sinsName',
-'sinsStatus',
-'sinsCreatedAt',
-'sinsCreatedBy',
-'sinsUpdatedAt',
-'sinsUpdatedBy',
-'sinsRemovedAt',
-'sinsRemovedBy',
+'bdfID',
+'bdfType',
+'bdfName',
+'bdfStatus',
+'bdfCreatedAt',
+'bdfCreatedBy',
+'bdfUpdatedAt',
+'bdfUpdatedBy',
+'bdfRemovedAt',
+'bdfRemovedBy',
 */
-trait SupplementaryInsurerModelTrait
+trait BasicDefinitionModelTrait
 {
 	public function primaryKeyValue() {
-		return $this->sinsID;
+		return $this->bdfID;
 	}
 
 	public static function columnsInfo()
 	{
 		return [
-			'sinsID' => [
+			'bdfID' => [
 				enuColumnInfo::type       => 'integer',
 				enuColumnInfo::validator  => null,
 				enuColumnInfo::default    => null,
@@ -37,7 +38,15 @@ trait SupplementaryInsurerModelTrait
 				enuColumnInfo::selectable => true,
         enuColumnInfo::search     => true,
 			],
-			'sinsName' => [
+			'bdfType' => [
+				enuColumnInfo::type       => ['string', 'max' => 1],
+				enuColumnInfo::validator  => null,
+				enuColumnInfo::default    => null, //enuBasicDefinitionType
+				enuColumnInfo::required   => true,
+				enuColumnInfo::selectable => true,
+				enuColumnInfo::search     => true,
+			],
+			'bdfName' => [
 				enuColumnInfo::type       => ['string', 'max' => 64],
 				enuColumnInfo::validator  => null,
 				enuColumnInfo::default    => null,
@@ -45,51 +54,51 @@ trait SupplementaryInsurerModelTrait
 				enuColumnInfo::selectable => true,
         enuColumnInfo::search     => 'like',
 			],
-			'sinsStatus' => [
+			'bdfStatus' => [
 				enuColumnInfo::isStatus   => true,
 				enuColumnInfo::type       => ['string', 'max' => 1],
 				enuColumnInfo::validator  => null,
-				enuColumnInfo::default    => enuInsurerStatus::Active,
+				enuColumnInfo::default    => enuBasicDefinitionStatus::Active,
 				enuColumnInfo::required   => true,
 				enuColumnInfo::selectable => true,
         enuColumnInfo::search     => true,
 			],
-      'sinsCreatedAt' => [
+      'bdfCreatedAt' => [
 				enuColumnInfo::type       => 'safe',
 				enuColumnInfo::validator  => null,
 				enuColumnInfo::default    => null,
 				enuColumnInfo::required   => false,
 				enuColumnInfo::selectable => true,
 			],
-      'sinsCreatedBy' => [
+      'bdfCreatedBy' => [
 				enuColumnInfo::type       => 'integer',
 				enuColumnInfo::validator  => null,
 				enuColumnInfo::default    => null,
 				enuColumnInfo::required   => false,
 				enuColumnInfo::selectable => true,
 			],
-      'sinsUpdatedAt' => [
+      'bdfUpdatedAt' => [
 				enuColumnInfo::type       => 'safe',
 				enuColumnInfo::validator  => null,
 				enuColumnInfo::default    => null,
 				enuColumnInfo::required   => false,
 				enuColumnInfo::selectable => true,
 			],
-      'sinsUpdatedBy' => [
+      'bdfUpdatedBy' => [
 				enuColumnInfo::type       => 'integer',
 				enuColumnInfo::validator  => null,
 				enuColumnInfo::default    => null,
 				enuColumnInfo::required   => false,
 				enuColumnInfo::selectable => true,
 			],
-			'sinsRemovedAt' => [
+			'bdfRemovedAt' => [
 				enuColumnInfo::type       => 'safe',
 				enuColumnInfo::validator  => null,
 				enuColumnInfo::default    => null,
 				enuColumnInfo::required   => false,
 				enuColumnInfo::selectable => true,
 			],
-			'sinsRemovedBy' => [
+			'bdfRemovedBy' => [
 				enuColumnInfo::type       => 'integer',
 				enuColumnInfo::validator  => null,
 				enuColumnInfo::default    => null,
@@ -108,7 +117,7 @@ trait SupplementaryInsurerModelTrait
 		else
 			$className = '\shopack\aaa\frontend\common\models\UserModel';
 
-		return $this->hasOne($className, ['usrID' => 'sinsCreatedBy']);
+		return $this->hasOne($className, ['usrID' => 'bdfCreatedBy']);
 	}
 
 	public function getUpdatedByUser() {
@@ -119,7 +128,7 @@ trait SupplementaryInsurerModelTrait
 		else
 			$className = '\shopack\aaa\frontend\common\models\UserModel';
 
-		return $this->hasOne($className, ['usrID' => 'sinsUpdatedBy']);
+		return $this->hasOne($className, ['usrID' => 'bdfUpdatedBy']);
 	}
 
 	public function getRemovedByUser() {
@@ -130,7 +139,7 @@ trait SupplementaryInsurerModelTrait
 		else
 			$className = '\shopack\aaa\frontend\common\models\UserModel';
 
-		return $this->hasOne($className, ['usrID' => 'sinsRemovedBy']);
+		return $this->hasOne($className, ['usrID' => 'bdfRemovedBy']);
 	}
 
 }

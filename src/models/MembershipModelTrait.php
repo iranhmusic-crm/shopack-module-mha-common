@@ -63,6 +63,7 @@ trait MembershipModelTrait
         enuColumnInfo::search     => true,
 			],
 			'mshpStatus' => [
+				enuColumnInfo::isStatus   => true,
 				enuColumnInfo::type       => ['string', 'max' => 1],
 				enuColumnInfo::validator  => null,
 				enuColumnInfo::default    => enuMembershipStatus::Active,

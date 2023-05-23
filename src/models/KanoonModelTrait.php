@@ -12,6 +12,8 @@ use iranhmusic\shopack\mha\common\enums\enuKanoonStatus;
 /*
 'knnID',
 'knnName',
+'knnDescFieldType',
+'knnDescFieldLabel',
 'knnPresidentMemberID',
 'knnVicePresidentMemberID',
 'knnOzv1MemberID',
@@ -51,6 +53,22 @@ trait KanoonModelTrait
 				enuColumnInfo::required   => true,
 				enuColumnInfo::selectable => true,
         enuColumnInfo::search     => 'like',
+			],
+			'knnDescFieldType' => [
+				enuColumnInfo::type       => ['string', 'max' => 64],
+				enuColumnInfo::validator  => null,
+				enuColumnInfo::default    => null,
+				enuColumnInfo::required   => false,
+				enuColumnInfo::selectable => true,
+				enuColumnInfo::search     => true,
+			],
+			'knnDescFieldLabel' => [
+				enuColumnInfo::type       => ['string', 'max' => 64],
+				enuColumnInfo::validator  => null,
+				enuColumnInfo::default    => null,
+				enuColumnInfo::required   => false,
+				enuColumnInfo::selectable => true,
+				enuColumnInfo::search     => true,
 			],
 			'knnPresidentMemberID' => [
 				enuColumnInfo::type       => 'integer',
@@ -109,6 +127,7 @@ trait KanoonModelTrait
         enuColumnInfo::search     => true,
 			],
 			'knnStatus' => [
+				enuColumnInfo::isStatus   => true,
 				enuColumnInfo::type       => ['string', 'max' => 1],
 				enuColumnInfo::validator  => null,
 				enuColumnInfo::default    => enuKanoonStatus::Active,

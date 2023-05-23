@@ -55,6 +55,7 @@ trait MasterInsurerTypeModelTrait
         enuColumnInfo::search     => 'like',
 			],
 			'minstypStatus' => [
+				enuColumnInfo::isStatus   => true,
 				enuColumnInfo::type       => ['string', 'max' => 1],
 				enuColumnInfo::validator  => null,
 				enuColumnInfo::default    => enuInsurerStatus::Active,

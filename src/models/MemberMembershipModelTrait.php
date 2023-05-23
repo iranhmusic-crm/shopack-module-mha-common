@@ -70,6 +70,7 @@ trait MemberMembershipModelTrait
         enuColumnInfo::search     => true,
 			],
 			'mbrshpStatus' => [
+				enuColumnInfo::isStatus   => true,
 				enuColumnInfo::type       => ['string', 'max' => 1],
 				enuColumnInfo::validator  => null,
 				enuColumnInfo::default    => enuMemberMembershipStatus::WaitForPay,
